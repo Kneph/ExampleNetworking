@@ -8,6 +8,8 @@ import io.realm.RealmConfiguration
 
 class NetworkingApplication: MultiDexApplication() {
 
+    private val singleton: NetworkingApplication? = null
+
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
@@ -17,7 +19,12 @@ class NetworkingApplication: MultiDexApplication() {
             .build()
 
         Realm.setDefaultConfiguration(realmConfig)
-
     }
+
+    fun getInstance(): NetworkingApplication? {
+        return singleton
+    }
+
+
 
 }
