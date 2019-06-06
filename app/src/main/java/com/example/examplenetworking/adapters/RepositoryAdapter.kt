@@ -1,9 +1,11 @@
 package com.example.examplenetworking.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.examplenetworking.R
 import com.example.examplenetworking.models.Repository
 import kotlinx.android.synthetic.main.list_item.view.*
@@ -35,6 +37,11 @@ class RepositoryAdapter(val items: List<Repository>, val clickListener: (Reposit
         fun bind(repositoryData: Repository, clickListener: (Repository) -> Unit) {
             itemView.name.text = repositoryData.name
             itemView.url.text = repositoryData.url
+            Glide.with(itemView.context)
+                .load(repositoryData.owner.avatar_url)
+                .fitCenter()
+                .centerCrop()
+                .into(itemView.profile_image)
             itemView.setOnClickListener { clickListener(repositoryData) }
         }
     }
