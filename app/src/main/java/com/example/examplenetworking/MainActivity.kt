@@ -1,11 +1,14 @@
 package com.example.examplenetworking
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.examplenetworking.adapters.RepositoryAdapter
 import com.example.examplenetworking.fragments.DashboardFragment
 import com.example.examplenetworking.fragments.HomeFragment
 import com.example.examplenetworking.fragments.NotificationsFragment
+import com.example.examplenetworking.models.Repository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -44,5 +47,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             false
         }
+    }
+
+
+    private fun partItemClicked(item : Repository) {
+        Toast.makeText(this, "Clicked: ${item.name}", Toast.LENGTH_LONG).show()
     }
 }
