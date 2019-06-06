@@ -48,9 +48,4 @@ class MainActivity : AppCompatActivity() {
             false
         }
     }
-
-
-    private fun partItemClicked(item : Repository) {
-        Toast.makeText(this, "Clicked: ${item.name}", Toast.LENGTH_LONG).show()
-    }
 }
