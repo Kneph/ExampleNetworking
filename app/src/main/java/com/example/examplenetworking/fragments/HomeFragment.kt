@@ -61,8 +61,8 @@ class HomeFragment : Fragment() {
 
     private fun updateRepo() {
         GlobalScope.launch(Dispatchers.Main) {
-            //recycler_view.adapter = RepositoryAdapter(repositories, context)
-            recycler_view.adapter = RepositoryAdapter(repositories, { partItem : Repository -> repositoryItemClicked(partItem) })
+
+            recycler_view.adapter = RepositoryAdapter(repositories) { partItem : Repository -> repositoryItemClicked(partItem) }
 
         }
     }

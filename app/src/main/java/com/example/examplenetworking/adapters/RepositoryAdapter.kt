@@ -1,6 +1,5 @@
 package com.example.examplenetworking.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import com.example.examplenetworking.R
 import com.example.examplenetworking.models.Repository
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class RepositoryAdapter(val items: List<Repository>, val clickListener: (Repository) -> Unit) :
+class RepositoryAdapter(val items: List<Repository>, private val clickListener: (Repository) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
