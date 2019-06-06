@@ -12,6 +12,7 @@ import com.example.examplenetworking.models.Repository
 import com.example.examplenetworking.network.GitHubService
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -58,10 +59,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateRepo() {
-        activity?.runOnUiThread {
+        GlobalScope.launch(Dispatchers.Main) {
             recycler_view.adapter = RepositoryAdapter(repositories, context)
-        }
 
+        }
     }
 
 
